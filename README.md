@@ -20,4 +20,6 @@ To understand this, consider the following example: Alice sends 1 BTC to the mul
 
 #### Bidirectional Channel
 
+The aforementioned scheme only allows Alice to send money to Bob. In order for Bob to be able to send money to Alice as well, we introduce an nLock time to the transactions generated from the multisig address. That is, we start an initial transaction with an nLock time that is decremented every time the direction of the transaction is changed.
 
+This can be illustrated by the following example: Alice creates and signs a transaction from the shared multisig address that sends 0.8 BTC back to herself and 0.2 BTC to Bob, with some specified nLock time X. Bob wishes to send 0.1 BTC to Alice, so he creates and signs a new transaction from the multisig address that sends 0.9 BTC to Alice and 0.1 BTC to himself with an nLock time of X-1. Due to the decremented nLock time, Alice can sign this transaction before Bob goes back on his word and signs the previous transaction that sent 0.8 BTC to Alice and 0.2 BTC to Bob.
