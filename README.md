@@ -25,3 +25,15 @@ The aforementioned scheme only allows Alice to send money to Bob. In order for B
 This can be illustrated by the following example: Alice creates and signs a transaction from the shared multisig address that sends 0.8 BTC back to herself and 0.2 BTC to Bob, with some specified nLock time X. Bob wishes to send 0.1 BTC to Alice, so he creates and signs a new transaction from the multisig address that sends 0.9 BTC to Alice and 0.1 BTC to himself with an nLock time of X-1. Due to the decremented nLock time, Alice can sign this transaction before Bob goes back on his word and signs the previous transaction that sent 0.8 BTC to Alice and 0.2 BTC to Bob.
 
 #### Transaction Revocation
+
+### Hashed Timelocked Contracts (HTLC's)
+
+Bidirectional payment channels only allow transactions between two parties. Ideally, we would like to build a network of these payment channels to allow any number of parties to interact with one another without having to open up new payment channels. The LN approach to building this network is to employ hashed timelocked contracts (HTLC's).
+
+What are HTLC's? I believe they are best illustrated through example. Suppose Alice wants to pay Bob 1 BTC, but does not want to open up a new payment channel with Bob. Alice and Bob both already have payment channels open with Chris - thus, Alice would like to somehow send the 1 BTC payment to Bob using Chris as an intermediary. 
+
+To accomplish this, Bob sends Alice a hash. Alice then promises to pay Chris 1 BTC if he gives her the pre-image of the hash within a set time period of N days. If Chris does not, Alice can redeem a refund transaction so that she does not lose her 1 BTC. Similarly, Chris promises to pay Bob 1 BTC if Bob gives Chris the pre-image of the hash within a time period of N-1 days. The time period for Chris is N-1 days as opposed to N days to prevent the scenario in which Alice redeems her 1 BTC before Chris, leaving Chris with a loss of 1 BTC due to Bob's inactivity. Chris also generates a refund transaction in case Bob becomes unresponsive.
+
+As can be seen pretty easily, this model can be generalized by continuing to use decrementing timelocks between parties. However, just using HTLC's does not solve our original problem - every transaction within the HTLC network still has to be broadcast.
+
+### HTLC's with Micropayment Channels
