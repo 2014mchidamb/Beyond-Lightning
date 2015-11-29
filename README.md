@@ -24,7 +24,9 @@ The aforementioned scheme only allows Alice to send money to Bob. In order for B
 
 This can be illustrated by the following example: Alice creates and signs a transaction from the shared multisig address that sends 0.8 BTC back to herself and 0.2 BTC to Bob, with some specified nLock time X. Bob wishes to send 0.1 BTC to Alice, so he creates and signs a new transaction from the multisig address that sends 0.9 BTC to Alice and 0.1 BTC to himself with an nLock time of X-1. Due to the decremented nLock time, Alice can sign this transaction before Bob goes back on his word and signs the previous transaction that sent 0.8 BTC to Alice and 0.2 BTC to Bob.
 
-#### Transaction Revocation
+#### Bidirectional Channels with Revocable Transactions
+
+Suppose we wished to create bidirectional channels in a way that would penalize parties attempting to broadcast old transactions - how would we do this? The LN solution is to use a symmetric pair of commitment transactions stemming from a mutual funding transaction.
 
 ### Hashed Timelocked Contracts (HTLC's)
 
