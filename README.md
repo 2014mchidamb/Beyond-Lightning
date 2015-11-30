@@ -26,7 +26,9 @@ This can be illustrated by the following example: Alice creates and signs a tran
 
 #### Bidirectional Channels with Revocable Transactions
 
-Suppose we wished to create bidirectional channels in a way that would penalize parties attempting to broadcast old transactions - how would we do this? The LN solution is to use a symmetric pair of commitment transactions stemming from a mutual funding transaction.
+Suppose we wished to create bidirectional channels in a way that would penalize parties attempting to broadcast old transactions - how would we do this? The LN solution is to use a symmetric pair of commitment transactions stemming from a mutual funding transaction. This basically means that both Alice and Bob contribute to a funding transaction and then obtain refund/commitment transactions signed by the other party. Updating the commitment transactions thus requires both Alice and Bob to sign new commitment transactions containing the updated balance for the other party.
+
+Since Alice and Bob both have their own commitment transactions derived from the funding transaction, they both have the ability to broadcast their respective commitment transactions at any time and end the channel. However, each commitment transaction is encumbered with a time lock so that the owner only receivers his or her respective output after a certain delay. In other words, if Alice chooses to broadcast her commitment transaction, Bob can spend his output immediately, but Alice must wait some number of days (or rather, some number of blocks) before spending hers. Furthermore, all commitment transactions are signed using "throwaway" private keys, so that the keys can be released once the commitment transactions are updated. The combination of the released private keys and the time-locked outputs allows for one party to obtain control of all of the funds should the other party attempt to broadcast an old commitment transaction.
 
 ### Hashed Timelocked Contracts (HTLC's)
 
