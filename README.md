@@ -39,3 +39,16 @@ What are HTLC's? I believe they are best illustrated through example. Suppose Al
 To accomplish this, Bob sends Alice a hash. Alice then promises to pay Chris 1 BTC if he gives her the pre-image of the hash within a set time period of N days. If Chris does not, Alice can redeem a refund transaction so that she does not lose her 1 BTC. Similarly, Chris promises to pay Bob 1 BTC if Bob gives Chris the pre-image of the hash within a time period of N-1 days. The time period for Chris is N-1 days as opposed to N days to prevent the scenario in which Alice redeems her 1 BTC before Chris, leaving Chris with a loss of 1 BTC due to Bob's inactivity. Chris also generates a refund transaction in case Bob becomes unresponsive.
 
 As can be seen pretty easily, this model can be generalized by continuing to use decrementing timelocks between parties. In essence, HTLC's are payments contingent on the revelation of a specified pre-image within a set period of time. By embedding HTLC's within payment channels, transactions can be conducted through a network without having to repeatedly hit the blockchain.
+
+## Problems facing the Lightning Network
+
+## References
+[BIP 112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki)
+
+[Lightning Network Issues Discussion](https://www.reddit.com/r/Bitcoin/comments/3tucne/eli19_what_are_the_issues_with_the_lightning/)
+
+[Deployable Lightning](https://github.com/ElementsProject/lightning/blob/master/doc/deployable-lightning.pdf)
+
+[The Bitcoin Lightning Network](https://docs.google.com/viewer?url=https%3A%2F%2Flightning.network%2Flightning-network-paper.pdf)
+
+[Segregated Witness Discussion](https://www.reddit.com/r/Bitcoin/comments/3th0py/sipa_proposes_a_fork_of_mainnet_enabling/cx6cunn)
