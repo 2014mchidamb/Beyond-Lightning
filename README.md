@@ -57,7 +57,9 @@ Rusty Russell, a core tech engineer at Blockstream and developer actively workin
 
 ### Transaction Malleability
 
-Another term that appears to be ubiquitous in discussions of issues with the Lightning Network is Transaction Malleability.
+Another term that appears to be ubiquitous in discussions of issues with the Lightning Network is transaction malleability. In simple terms, transaction malleability refers to the idea that minor modifications to a bitcoin transaction's data can lead to an identical transaction with a different hash. 
+
+Why is this a big deal? Transaction malleability becomes a serious problem when the transaction hash is used as a unique identifier. For example, consider payment channels in the Lightning Network. Payment channels rely on the integrity of multiple unconfirmed transactions, with transactions building on top of one another. Thus, if some transaction were to become compromised in the chain of transactions, the transactions using that compromised transaction would also become invalidated. 
 
 ## References
 [BIP 112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki)
