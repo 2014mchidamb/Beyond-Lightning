@@ -55,6 +55,10 @@ Rusty Russell, a core tech engineer at Blockstream and developer actively workin
 + Micropayments may prove to be more sensitive to traffic analysis than large transactions, which would negatively impact anonymity.
 + Payments may move across millions of nodes prior to reaching their respective destinations, which is a significant routing problem since this needs to be done while revealing as little information as possible.
 
+### Transaction Malleability
+
+Another term that appears to be ubiquitous in discussions of issues with the Lightning Network is Transaction Malleability.
+
 ## References
 [BIP 112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki)
 
