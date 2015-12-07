@@ -73,16 +73,27 @@ In order to address the issues with the implementation of the Lightning Network,
 
 ### Segregated Witness
 
+While segregated witness is not directly related to the Lightning Network in the way the aforementioned BIP's are, it is nonetheless an interesting idea for tackling a problem that plagues the network: malleability. Basically, the core idea behind segregated witness appears to be abscinding signature scripts from the txid generation process. By making signature scripts separate and validating them separately, the potential for malleability in txids should be reduced to nil.
+
+Obviously, this is a fairly gross simplification of the idea, and I have provided references for understanding it in greater depth. Once the nuances of the divided system are worked out in greater detail, I hope to update this description.
+
 
 ## References
+[BIP 65](https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki)
+
+[BIP 68](https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki)
+
 [BIP 112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki)
+
+[Deployable Lightning](https://github.com/ElementsProject/lightning/blob/master/doc/deployable-lightning.pdf)
 
 [Lightning Network Issues Discussion](https://www.reddit.com/r/Bitcoin/comments/3tucne/eli19_what_are_the_issues_with_the_lightning/)
 
-[Deployable Lightning](https://github.com/ElementsProject/lightning/blob/master/doc/deployable-lightning.pdf)
+[Scaling Bitcoin BIP Proposals](https://www.reddit.com/r/Bitcoin/comments/3vq8hm/multiple_new_bip_proposals_coming_up_on_day_2_of/)
+
+[Segregated Witness Discussion](https://www.reddit.com/r/Bitcoin/comments/3th0py/sipa_proposes_a_fork_of_mainnet_enabling/cx6cunn)
 
 [The Bitcoin Lightning Network](https://docs.google.com/viewer?url=https%3A%2F%2Flightning.network%2Flightning-network-paper.pdf)
 
 [Transaction Malleability Attack](https://bitcoinmagazine.com/articles/the-who-what-why-and-how-of-the-ongoing-transaction-malleability-attack-1444253640)
 
-[Segregated Witness Discussion](https://www.reddit.com/r/Bitcoin/comments/3th0py/sipa_proposes_a_fork_of_mainnet_enabling/cx6cunn)
