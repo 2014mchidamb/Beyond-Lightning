@@ -40,7 +40,20 @@ To accomplish this, Bob sends Alice a hash. Alice then promises to pay Chris 1 B
 
 As can be seen pretty easily, this model can be generalized by continuing to use decrementing timelocks between parties. In essence, HTLC's are payments contingent on the revelation of a specified pre-image within a set period of time. By embedding HTLC's within payment channels, transactions can be conducted through a network without having to repeatedly hit the blockchain.
 
-## Problems facing the Lightning Network
+## Problems Facing the Lightning Network
+
+In theory, the Lightning Network seems like a strong choice for the future direction of bitcoin's infrastructure as it continues to grow more popular. This, of course, leads to the following question: why hasn't anyone built it yet?
+
+### Implementation Details
+
+Unsurprisingly, the answer to the previous question is that people are building it - carefully. The Lightning Network is a system that depends on a large number of components to work together smoothly in order to operate as envisioned. Thus, early mistakes in the engineering process could have costly ramifications in the future, especially if and when the network attempts to take on a much higher transaction load.
+
+Rusty Russell, a core tech engineer at Blockstream and developer actively working on implementing the Lightning Network, discussed his main concerns with developing the network in a Reddit thread on potential issues with the network. The following is a brief summary of his key points:
+
++ Protocol decisions need to be made cautiously, as undoing them in the future may prove difficult once the network is in use.
++ There is the potential of losing privacy and moving towards centralization if the network is not engineered in a way that is as trustless as possible, since many LN users will likely be sending their own transactions and connecting with arbitrary nodes.
++ Micropayments may prove to be more sensitive to traffic analysis than large transactions, which would negatively impact anonymity.
++ Payments may move across millions of nodes prior to reaching their respective destinations, which is a significant routing problem since this needs to be done while revealing as little information as possible.
 
 ## References
 [BIP 112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki)
