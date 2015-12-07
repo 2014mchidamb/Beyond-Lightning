@@ -69,7 +69,9 @@ In order to address the issues with the implementation of the Lightning Network,
 
 + **BIP 65:** Proposes the opcode OP_CHECKLOCKTIMEVERIFY (CTLV), which prevents a transaction from being spendable until a certain block height/block time is reached. This provides the necessary encumbering behavior that nLockTime does not, since nLockTime by itself does not make it impossible to spend a transaction (it only allows the ability to prove that it is possible to spend a transaction after some time).
 + **BIP 68:** Proposes a repurposing of nSequence to prevent mining of transactions until a certain amount of blocks or time has passed since the creation of the spent outputs.
-+ **BIP 112:**
++ **BIP 112:** Proposes the opcode OP_CHECKSEQUENCEVERIFY (CSV), which redefines the existing opcode NOP3 with behavior that interfaces with BIP 68. In other words, it makes the nSequence data field accessible from script.
+
+### Segregated Witness
 
 
 ## References
