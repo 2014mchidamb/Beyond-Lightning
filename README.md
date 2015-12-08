@@ -4,6 +4,10 @@
 
 **Project Goal:** Understanding the Lightning Network proposal as well as hypothesizing improvements or alternatives to parts (or all) of the proposal.
 
+## Motivation
+
+The bitcoin blockchain has a potential wealth of uses, such as trading financial securities and smart contracts. For it to be used for such large-scale systems, however, it needs to somehow overcome the limitations of the 1 MB block size. Thus, I set out to understand one specific approach for solving this problem: the Lightning Network.
+
 ## Overview of the Lightning Network
 
 **Main Idea:** Transactions that take place on the blockchain are inefficient (have to wait for confirmations). Thus, the idea is to conduct transactions using off-the-blockchain micropayment channels and to only broadcast transactions once a transaction consensus has been reached between the parties involved.
